@@ -106,7 +106,7 @@ app.get("/states/:stateId/stats/", async (request, response) => {
   let { stateId } = request.params;
   let get_query = `SELECT SUM(cases),SUM(cured),SUM(active),SUM(deaths) FROM district WHERE state_id=${stateId};`;
   let get_result = await db.get(get_query);
-  reponse.send(datareturnTwoSum(get_result));
+  response.send(datareturnTwoSum(get_result));
 });
 
 app.get("/districts/:districtId/details/", async (request, response) => {
